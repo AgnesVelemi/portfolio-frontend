@@ -1,0 +1,50 @@
+{
+    "HEADER": {
+        "HOME": "HOME",
+        "PROJECTS": "PROJEKTE",
+        "SERVICES": "GIT-CODES",
+        "CONTACT": "LEBENSLAUF",
+        "LETS_TALK": "LASS UNS REDEN"
+    },
+    "HERO": {
+        "GREETING_PREFIX": "AGNES VELEMI",
+        "NAME": "ICH BIN AGNES",
+        "ROLE": "FULLSTACK-ENTWICKLERIN",
+        "DESCRIPTION": "Ich entwickle Frontend-Webanwendungen im TypeScript-basierten Angular-Framework. Ich erstelle Backend-Apps mit RESTful APIs in Java-Maven-Spring Boot. Für die Datenspeicherung verwende ich die PostgreSQL-Datenbank.",
+        "CTA": "JETZT ANFRAGEN",
+        "VISITORS": "Besucher",
+        "CV_DOWNLOADS": "Lebenslauf Downloads",
+        "LANGUAGE_PREFERENCE": "Sprachpräferenz",
+        "STATS": {
+            "DEMOS": "Demo Projekte",
+            "EXPERIENCE": "Jahre Erfahrung",
+            "FILM": "Min-Filme"
+        }
+    },
+    "PORTFOLIO": {
+        "ABOUTME": "ÜBER MICH",
+        "TITLE": "MEINE ARBEIT",
+        "SUBTITLE": "AKTUELLE PROJEKTE",
+        "DESCRIPTION": "Früher begann ich, die integrierte serverseitige Ansicht von Thymeleaf HTML-SpringBoot zu nutzen, später wechselte ich zur Verwendung des Angular-Frameworks in separaten Frontend-Webanwendungen. In der Zwischenzeit entwickelte ich, zusätzlich zur Wartung von XML-basierten Spring-Anwendungen, Java-Maven-Spring-Boot-Programme unter Verwendung von Lombok und Apache POI, um Postgres-Daten in Excel-Tabellen zu schreiben. Qualifikation: IT-Ingenieur BSc-Abschluss am Dennis Gabor Hochschule.",
+        "PROJECT_1": {
+            "TITLE": "Webseite Design",
+            "DESC": "Angular inkl. Google Analytics"
+        },
+        "PROJECT_2": {
+            "TITLE": "Dashboard AAA",
+            "DESC": "Maven multi-project"
+        },
+        "PROJECT_3": {
+            "TITLE": "Mobile App Design",
+            "DESC": "Microservice(s) mit Spring Boot"
+        },
+        "PROJECT_4": {
+            "TITLE": "E-Commerce Plattform",
+            "DESC": "Fullstack-Entwicklung"
+        },
+        "PROJECT_5": {
+            "TITLE": "Aufgabenverwaltungs-App",
+            "DESC": "Angular, Spring Boot"
+        }
+    }
+}

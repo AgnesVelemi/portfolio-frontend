@@ -1,0 +1,26 @@
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <img src="../../../assets/favi/head/icons8-leaf-outline-gradient-96.png" alt="Logo" class="logo-img"
+                onerror="this.onerror=null; this.src='data:image/gif;base64,yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'">
+            <div class="attribution-bubble">
+                <a target="_blank" href="https://icons8.com/icon/axHsVz6TmtLr/leaf">Leaf</a> icon by <a target="_blank"
+                    href="https://icons8.com">Icons8</a>
+            </div>
+            <span>AGNES</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">{{ t('HEADER.PROJECTS') }}</a></li>
+                <li><a href="#">{{ t('HEADER.SERVICES') }}</a></li>
+                <li><a href="javascript:void(0)" (click)="openCV()">{{ t('HEADER.CONTACT') }}</a></li>
+            </ul>
+        </nav>
+        <div class="actions">
+            <button class="lang-btn" (click)="switchLang('en')" [class.active]="currentLang === 'en'">EN</button>
+            <span class="divider">|</span>
+            <button class="lang-btn" (click)="switchLang('de')" [class.active]="currentLang === 'de'">DE</button>
+            <button class="cta-btn">{{ t('HEADER.LETS_TALK') }}</button>
+        </div>
+    </div>
+</header>

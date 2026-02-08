@@ -1,0 +1,50 @@
+{
+  "HEADER": {
+    "HOME": "HOME",
+    "PROJECTS": "PROJECTS",
+    "SERVICES": "GIT-CODES",
+    "CONTACT": "CONTACT & CV",
+    "LETS_TALK": "LET'S TALK"
+  },
+  "HERO": {
+    "GREETING_PREFIX": "AGNES VELEMI",
+    "NAME": "HEY! I AM AGNES",
+    "ROLE": "A FULLSTACK DEVELOPER",
+    "DESCRIPTION": "I develop frontend web applications in TypeScript-based Angular framework. I build backend apps with RESTful APIs in java-maven-spring boot. The PostgreSQL database is what I use for data storage.",
+    "CTA": "REQUEST NOW",
+    "VISITORS": "Visitors",
+    "CV_DOWNLOADS": "CV Downloads",
+    "LANGUAGE_PREFERENCE": "Language Preference",
+    "STATS": {
+      "DEMOS": "Demo Projects",
+      "EXPERIENCE": "Years Experience",
+      "FILM": "Min-Films"
+    }
+  },
+  "PORTFOLIO": {
+    "ABOUTME": "ABOUT ME",
+    "TITLE": "MY WORK",
+    "SUBTITLE": "LATEST PROJECTS",
+    "DESCRIPTION": "Earlier I began to use the Thymeleaf html-springboot integrated server-side view, later I switched to using Angular framework in separated frontend webapplications. In the meantime, in addition to maintaining XML-based spring applications with my software developments, I developed java-maven-spring boot programs using Lombok, and apache-poi to write out postgres-data into excel spreadsheets.\nQualification: IT engineer BSc degree at Dennis Gabor College.",
+    "PROJECT_1": {
+      "TITLE": "Website Design",
+      "DESC": "Angular incl. Google Analytics"
+    },
+    "PROJECT_2": {
+      "TITLE": "Dashboard AAA",
+      "DESC": "Maven multi-project"
+    },
+    "PROJECT_3": {
+      "TITLE": "Mobile App Design",
+      "DESC": "Microservice(s) with Spring Boot"
+    },
+    "PROJECT_4": {
+      "TITLE": "E-commerce Platform",
+      "DESC": "Fullstack Development"
+    },
+    "PROJECT_5": {
+      "TITLE": "Task Management App",
+      "DESC": "Angular, Spring Boot"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<section class="hero-section">
+    <div class="container hero-content">
+        <div class="text-column">
+            <div class="badge">{{ t('HERO.GREETING_PREFIX') }}</div>
+            <h1>{{ t('HERO.NAME') }}</h1>
+            <h2 class="outlined-text">{{ t('HERO.ROLE') }}</h2>
+            <p class="description">{{ t('HERO.DESCRIPTION') }}</p>
+
+            <!-- Google Analytics Dashboard (Visual Demo) -->
+            <div class="stats-dashboard">
+                <div class="dashboard-header">
+                    <span class="pulse"></span>
+                    <h4>Live Google Analytics</h4>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="dash-item">
+                        <span class="label">{{ t('HERO.VISITORS') }}</span>
+                        <span class="value">{{ visitorCount }}</span>
+                    </div>
+                    <div class="dash-item">
+                        <span class="label">{{ t('HERO.CV_DOWNLOADS') }}</span>
+                        <span class="value">{{ cvDownloads }}</span>
+                    </div>
+                    <div class="dash-item full-width">
+                        <span class="label">{{ t('HERO.LANGUAGE_PREFERENCE') }}</span>
+                        <div class="progress-bar">
+                            <div class="progress-segment en" [style.width.%]="langEnPercent" title="English">
+                                EN {{ langEnPercent }}%
+                            </div>
+                            <div class="progress-segment de" [style.width.%]="langDePercent" title="German">
+                                DE {{ langDePercent }}%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-column">
+            <div class="image-wrapper">
+                <!-- the onerror handler with a self-contained SVG placeholder. Instead of a tiny 1x1 pixel or an external link, I've embedded a professional-looking, grey user silhouette directly into the code. -->
+                <img src="assets/me/whitey_face.png"
+                    onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 500\'%3E%3Crect width=\'400\' height=\'500\' fill=\'%23334155\'/%3E%3Ccircle cx=\'200\' cy=\'200\' r=\'80\' fill=\'%2394a3b8\'/%3E%3Cpath d=\'M200 300c-66.7 0-120 53.3-120 120h240c0-66.7-53.3-120-120-120z\' fill=\'%2394a3b8\'/%3E%3C/svg%3E'"
+                    alt="Selfie">
+            </div>
+        </div>
+
+
+    </div>
+
+
+</section>
