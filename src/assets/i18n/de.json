@@ -35,15 +35,15 @@
             "DESC": "Maven multi-project"
         },
         "PROJECT_3": {
-            "TITLE": "Mobile App Design",
-            "DESC": "Microservice(s) mit Spring Boot"
+            "TITLE": "Spring Boot",
+            "DESC": "Microservice(s) "
         },
         "PROJECT_4": {
-            "TITLE": "E-Commerce Plattform",
+            "TITLE": "Anweisungs App",
             "DESC": "Fullstack-Entwicklung"
         },
         "PROJECT_5": {
-            "TITLE": "Aufgabenverwaltungs-App",
+            "TITLE": "TO-DO-App",
             "DESC": "Angular, Spring Boot"
         }
     }

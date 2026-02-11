@@ -3,13 +3,12 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: var(--card-bg);
-    /* Use card background or accent for contrast */
+    background-color: var(--darker-card-bg-color);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #abaaaa;
+    color: var(--mid-colored-btn-bg);
     padding: 10px 0;
     z-index: 1000;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     font-weight: 500;
     text-transform: uppercase;
     backdrop-filter: blur(10px);
@@ -31,7 +30,7 @@
     .tech-ticker {
         display: flex;
         align-items: center;
-        gap: 15px;
+        gap: 6px;
 
         span {
             display: flex;
@@ -46,7 +45,7 @@
                 transition: color 0.3s ease;
 
                 &:hover {
-                    color: var(--accent-color);
+                    color: var(--mid-colored-btn-bg);
                 }
 
                 img {
@@ -63,7 +62,7 @@
         }
 
         .divider {
-            color: var(--accent-color);
+            color: var(--mid-colored-btn-bg);
         }
     }
 
@@ -76,7 +75,8 @@
     display: flex;
     align-items: center;
     font-weight: 800;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
+    color: var(--white-color);
 
     position: relative; // Needed for absolute positioning of the bubble
 
@@ -108,7 +108,7 @@
             text-decoration: underline;
 
             &:hover {
-                color: var(--accent-color);
+                color: var(--mid-colored-btn-bg);
             }
         }
     }

@@ -1,0 +1,42 @@
+<section class="project-section">
+    <div class="container">
+        <!-- Projects -->
+        <div class="portfolio-projects">
+            <div class="section-header">
+                <span class="badge">{{ t('PORTFOLIO.TITLE') }}</span>
+                <h2>{{ t('PORTFOLIO.SUBTITLE') }}</h2>
+            </div>
+
+            <div class="slider-controls">
+                <button class="nav-btn prev" (click)="prevProject()"
+                    [disabled]="currentIndex === 0"><span>&lt;&lt;</span></button>
+                <div class="projects-viewport">
+                    <div class="projects-track"
+                        [style.transform]="'translateX(-' + (currentIndex * (100 / visibleCards)) + '%)'">
+                        <div class="project-card" *ngFor="let project of projects">
+                            <div class="card-image" (click)="openProject(project.url)">
+                                <img [src]="project.image" onerror="this.src='http://via.placeholder.com/300x200'"
+                                    [alt]="t('PORTFOLIO.' + project.translationKey + '.TITLE')">
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-content">
+                                    <h3>{{ t('PORTFOLIO.' + project.translationKey + '.TITLE') }}</h3>
+                                    <p>{{ t('PORTFOLIO.' + project.translationKey + '.DESC') }}</p>
+                                </div>
+                                <button class="arrow-btn" (click)="openProject(project.url)">&nearr;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="nav-btn next" (click)="nextProject()"
+                    [disabled]="currentIndex === maxIndex"><span>&gt;&gt;</span></button>
+            </div>
+
+            <div class="pagination-dots">
+                <span *ngFor="let project of projects; let i = index" class="dot" [class.active]="currentIndex === i"
+                    (click)="goToProject(i)">
+                </span>
+            </div>
+        </div>
+    </div>
+</section>

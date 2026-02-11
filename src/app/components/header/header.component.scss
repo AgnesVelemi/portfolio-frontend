@@ -1,4 +1,6 @@
 header {
+    background-color: var(--darker-card-bg-color);
+    color: var(--mid-colored-btn-bg);
     padding: 20px 0;
     // position: absolute;
     position: sticky;
@@ -7,13 +9,10 @@ header {
     left: 0;
     //z-index: 10;
     z-index: 1000;
-    background-color: var(--bg-color);
     /* Solid background to obscure scrolling content */
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     /* Subtle separator */
 }
-
-
 
 .header-content {
     display: flex;
@@ -25,7 +24,8 @@ header {
     display: flex;
     align-items: center;
     font-weight: 800;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: var(--white-color);
 
     position: relative; // Needed for absolute positioning of the bubble
 
@@ -37,13 +37,13 @@ header {
 
     .attribution-bubble {
         position: absolute;
-        top: 100%; // Below the logo
+        top: 100%;
         left: 0;
         background-color: rgba(0, 0, 0, 0.8);
-        color: white;
+        color: var(--white-color);
         padding: 5px 10px;
         border-radius: 4px;
-        font-size: 0.7rem;
+        font-size: 1.2rem;
         font-weight: 400;
         white-space: nowrap;
         opacity: 0;
@@ -55,13 +55,13 @@ header {
         a {
             color: #fff;
             text-decoration: underline;
+            font-size: 1.2rem;
 
             &:hover {
-                color: var(--accent-color);
+                color: var(--mid-colored-btn-bg);
             }
         }
     }
-
 
 
     // Show when hovering the image OR the bubble itself (so links can be clicked)
@@ -81,14 +81,15 @@ nav ul {
     gap: 30px;
 
     a {
-        font-size: 0.9rem;
-        font-weight: 500;
+        font-size: 1.2rem;
+        font-weight: 800;
         text-transform: uppercase;
         opacity: 0.8;
+        color: var(--light-colored-btn-bg);
 
         &:hover {
             opacity: 1;
-            color: var(--accent-color);
+            color: var(--white-color);
         }
     }
 }
@@ -96,18 +97,21 @@ nav ul {
 .actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+
 
     .lang-btn {
         background: none;
-        color: var(--text-color);
+        color: var(--mid-colored-btn-bg);
         font-weight: 600;
         opacity: 0.5;
         padding: 0;
+        font-size: 1.2rem;
+
 
         &.active {
             opacity: 1;
-            color: var(--accent-color);
+            color: var(--pale-light-colored);
         }
 
         &:hover {
@@ -120,12 +124,12 @@ nav ul {
     }
 
     .cta-btn {
-        background-color: var(--accent-color);
+        background-color: var(--mid-colored-btn-bg);
         color: white;
         padding: 10px 20px;
         border-radius: 20px;
         font-weight: 600;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         margin-left: 20px;
         transition: transform 0.2s;
 

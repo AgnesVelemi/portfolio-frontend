@@ -8,7 +8,7 @@
   },
   "HERO": {
     "GREETING_PREFIX": "AGNES VELEMI",
-    "NAME": "HEY! I AM AGNES",
+    "NAME": "HI, I AM AGNES",
     "ROLE": "A FULLSTACK DEVELOPER",
     "DESCRIPTION": "I develop frontend web applications in TypeScript-based Angular framework. I build backend apps with RESTful APIs in java-maven-spring boot. The PostgreSQL database is what I use for data storage.",
     "CTA": "REQUEST NOW",
@@ -35,15 +35,15 @@
       "DESC": "Maven multi-project"
     },
     "PROJECT_3": {
-      "TITLE": "Mobile App Design",
-      "DESC": "Microservice(s) with Spring Boot"
+      "TITLE": "Spring Boot",
+      "DESC": "Microservice(s)"
     },
     "PROJECT_4": {
-      "TITLE": "E-commerce Platform",
+      "TITLE": "Payment App",
       "DESC": "Fullstack Development"
     },
     "PROJECT_5": {
-      "TITLE": "Task Management App",
+      "TITLE": "Task Manage App",
       "DESC": "Angular, Spring Boot"
     }
   }

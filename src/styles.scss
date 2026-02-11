@@ -1,13 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
 /* Global Styles */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --bg-color: #021a2f;
-    --text-color: #ffffff;
-    --accent-color: #1e90ff;
-    --card-bg: #0f2b44;
+
+    --darkest-bg-title-color: #333333; // darkest-gray
+    --darker-card-bg-color: #454556; // darker-gray
+
+    --dark-normal-text-color: #7a7a7a; // gray-text
+
+    --mid-colored-btn-bg: #aaaacc; // middle-lavender 
+    --light-colored-btn-bg: #e3e5f4; // light-lavender 
+
+    --pale-light-colored: #f9f7fb; // pale-light-lavender
+    --white-color: #ffffff; // white-text
+
     --font-family: 'Inter', sans-serif;
+
 }
 
 body {
@@ -20,10 +28,15 @@ body {
 }
 
 * {
-    box-sizing: border-box;
+    box-sizing: content-box;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
     font-weight: 700;
 }

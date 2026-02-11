@@ -59,6 +59,7 @@ BE_portfolio>ng serve
 * [ ] c:\...\portfolio-frontend> ng generate component components/header
 * [ ] c:\...\portfolio-frontend> ng generate component components/hero
 * [ ] c:\...\portfolio-frontend> ng generate component components/portfolio
+* [ ] c:\...\portfolio-frontend> ng g c                components/project
 * [ ] c:\...\portfolio-frontend> ng g c                components/footer
 * [ ] c:\...\portfolio-frontend> ng serve ➜  http://localhost:4200/ → CTRL+C
 
@@ -69,6 +70,7 @@ BE_portfolio>ng serve
 <main>
   <app-hero></app-hero>
   <app-portfolio></app-portfolio>
+  <app-project></app-project>
 </main>
 <app-footer></app-footer>
 ```
@@ -81,10 +83,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProjectComponent } from "./components/project/project.component";
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, HeroComponent, PortfolioComponent, FooterComponent],
+  imports: [HeaderComponent, HeroComponent, PortfolioComponent, FooterComponent, ProjectComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -439,6 +442,7 @@ export class HeaderComponent {
 ```bash
 git init
 git add README.md
+git add .
 git commit -m "first commit"
 git branch -M main
 
@@ -635,6 +639,10 @@ git push -u origin main
     backdrop-filter: blur(10px);
 ```
 ![sticky-footer.png](sticky_footer.png)
+
+## Color
+* colorpicker: https://websitestylekit.com/
+
 
 ***
 ***
