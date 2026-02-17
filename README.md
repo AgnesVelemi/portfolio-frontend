@@ -1,24 +1,24 @@
 # portfolio-frontend
-
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
 
 ## Departure
-[View Install Setup](src/assets/DOC/Install_Setup.md)
-
+Detailed [Install Setup](DOC/Install_Setup.md) with screenshots and checklists.
 ```bash
 ng install @angular/cli
 ```
 
+## Enhancement
+Detailed [Install Setup](DOC/Install_Setup.md) with screenshots and checklists.
+
+# Change Log
+Detailed [Change Log](DOC/Change_Log.md) with versions & screenshots.
+
 ## Development server
-
 To start a local development server, run:
-
 ```bash
 ng serve
 ```
-
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Once the server is running, open your browser and navigate to `http://localhost:4200/`.
 
 ## Code scaffolding
 

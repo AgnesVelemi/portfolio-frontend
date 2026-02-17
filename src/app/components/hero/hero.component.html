@@ -43,6 +43,25 @@
                     onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 500\'%3E%3Crect width=\'400\' height=\'500\' fill=\'%23334155\'/%3E%3Ccircle cx=\'200\' cy=\'200\' r=\'80\' fill=\'%2394a3b8\'/%3E%3Cpath d=\'M200 300c-66.7 0-120 53.3-120 120h240c0-66.7-53.3-120-120-120z\' fill=\'%2394a3b8\'/%3E%3C/svg%3E'"
                     alt="Selfie">
             </div>
+
+            <!-- Websocket Checking Surface -->
+            <div class="websocket-dashboard">
+                <div class="ws-header">
+                    <span class="pulse"></span>
+                    <h4>STOMP over WEBSOCKET</h4>
+                </div>
+                <div class="ws-controls">
+                    <div class="ws-btn-row">
+                        <button class="ws-btn" (click)="connect()">WS Connect</button>
+                        <button class="ws-btn" (click)="disconnect()">WS Disconnect</button>
+                    </div>
+                    <div class="ws-input-row">
+                        <input type="text" #messageInput placeholder="my message" class="ws-input">
+                        <button class="ws-send-btn"
+                            (click)="send(messageInput.value); messageInput.value=''">Send</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
 

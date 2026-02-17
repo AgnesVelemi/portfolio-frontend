@@ -4,6 +4,7 @@ import { LangService } from '../../i18n/lang.service';
 
 @Component({
   selector: 'app-hero',
+  standalone: true,
   imports: [],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
@@ -32,8 +33,6 @@ export class HeroComponent implements OnInit {
     // Simulate "live" data changes slightly on load
     this.visitorCount += Math.floor(Math.random() * 10);
     this.cvDownloads += Math.floor(Math.random() * 5);
-
-    // const fullPath = `${mainKey}.${nestedKey}`;
 
   }
 
@@ -126,5 +125,22 @@ export class HeroComponent implements OnInit {
     }).catch(err => {
       console.error('Failed to copy discord username: ', err);
     });
+  }
+
+  /* Websocket Surface Logic (Live Demo) */
+  connect(): void {
+    console.log('[Websocket] Connecting...');
+    // Real-time connection logic here
+  }
+
+  disconnect(): void {
+    console.log('[Websocket] Disconnecting...');
+    // Real-time disconnection logic here
+  }
+
+  send(message: string): void {
+    if (!message) return;
+    console.log('[Websocket] Sending message:', message);
+    // Real-time send logic here
   }
 }
