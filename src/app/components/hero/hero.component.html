@@ -52,13 +52,18 @@
                 </div>
                 <div class="ws-controls">
                     <div class="ws-btn-row">
-                        <button class="ws-btn" (click)="connect()">WS Connect</button>
-                        <button class="ws-btn" (click)="disconnect()">WS Disconnect</button>
+                        <button class="ws-btn" [class.active]="isConnected" (click)="connect()">WS Connect</button>
+                        <button class="ws-btn" [class.active]="!isConnected" (click)="disconnect()">WS
+                            Disconnect</button>
                     </div>
                     <div class="ws-input-row">
                         <input type="text" #messageInput placeholder="my message" class="ws-input">
                         <button class="ws-send-btn"
                             (click)="send(messageInput.value); messageInput.value=''">Send</button>
+                        <div class="ws-received-message">
+                            <span class="payload">{{ latestMessage.payload }}</span>
+                            <span class="timestamp">at {{ formatWsDate(latestMessage.when) }}</span>
+                        </div>
                     </div>
                 </div>
             </div>

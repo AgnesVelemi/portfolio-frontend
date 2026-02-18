@@ -1,17 +1,20 @@
 # portfolio-frontend
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
 
+# Change Log
+Detailed [Change Log](DOC/md/Change_Log.md) with versions & screenshots.
+
 ## Departure
-Detailed [Install Setup](DOC/Install_Setup.md) with screenshots and checklists.
+Detailed [Install Setup](DOC/md/Install_Setup.md) with screenshots and checklists.
 ```bash
 ng install @angular/cli
 ```
 
 ## Enhancement
-Detailed [Install Setup](DOC/Install_Setup.md) with screenshots and checklists.
+* STOMP over WebSocket for real-time communication of the Google Analytics 4 (GA4) events 
+  * [Websocket](DOC/md/Websocket_GA4.md)
 
-# Change Log
-Detailed [Change Log](DOC/Change_Log.md) with versions & screenshots.
+
 
 ## Development server
 To start a local development server, run:
