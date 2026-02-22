@@ -10,7 +10,7 @@
             <div class="stats-dashboard">
                 <div class="dashboard-header">
                     <span class="pulse"></span>
-                    <h4>Live Google Analytics</h4>
+                    <h4>Like Google Analytics</h4>
                 </div>
                 <div class="dashboard-grid">
                     <div class="dash-item">
@@ -57,12 +57,13 @@
                             Disconnect</button>
                     </div>
                     <div class="ws-input-row">
-                        <input type="text" #messageInput placeholder="my message" class="ws-input">
+                        <input type="text" #messageInput placeholder="Max 8 chars" maxlength="8" class="ws-input">
                         <button class="ws-send-btn"
                             (click)="send(messageInput.value); messageInput.value=''">Send</button>
                         <div class="ws-received-message">
-                            <span class="payload">{{ latestMessage.payload }}</span>
-                            <span class="timestamp">at {{ formatWsDate(latestMessage.when) }}</span>
+                            <span class="label">Server:</span>
+                            <span class="payload">{{ latestMessage.outMessage }}</span>
+                            <span class="timestamp">{{ formatWSDate(latestMessage.timestamp) }}</span>
                         </div>
                     </div>
                 </div>

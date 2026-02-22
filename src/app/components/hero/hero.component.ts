@@ -34,7 +34,7 @@ export class HeroComponent implements OnInit {
   isConnected: boolean = false;
   stompClient: any;
   responseSubject = new Subject<MessageFromServer>();
-  latestMessage: MessageFromServer = { payload: 'n/a', when: '1970-01-01T00:00:00Z' };
+  latestMessage: MessageFromServer = { outMessage: 'n/a', timestamp: '' };
 
   constructor(public langService: LangService) { }
 
@@ -145,7 +145,7 @@ export class HeroComponent implements OnInit {
     console.log('[Websocket] Connecting...');
     this.isConnected = true; // Synchronous state update for immediate UI feedback
 
-    let websocket = new SockJS('http://localhost:8080/ws'); // websocket endpoint
+    let websocket = new SockJS('http://localhost:8080/ws/stomp'); // registy.add-ed websocket endpoint
     this.stompClient = Stomp.over(websocket);
 
     this.stompClient.connect({}, (frame: any) => {
@@ -161,6 +161,7 @@ export class HeroComponent implements OnInit {
     if (this.stompClient != null) {
       this.stompClient.disconnect();
       this.isConnected = false;
+      this.latestMessage = { outMessage: 'n/a', timestamp: '1970-01-01T00:00:00Z' };
     }
     console.log('[Websocket] Disconnected');
   }
@@ -181,16 +182,19 @@ export class HeroComponent implements OnInit {
     console.log('[Websocket] Sent message:', JSON.stringify(message));
   }
 
-  onMessageReceived(gotSomeWhatMessageFromServer: any) {
-    console.log("[Websocket] Received message from server: " + gotSomeWhatMessageFromServer.body);
-    const obj = JSON.parse(gotSomeWhatMessageFromServer.body) as MessageFromServer; // parse the message from the server into JSON->object
+  onMessageReceived(gotMessageFromServer: any) {
+    console.log("[Websocket] Received message from server: " + gotMessageFromServer.body);
+    const obj = JSON.parse(gotMessageFromServer.body) as MessageFromServer; // parse the message from the server into JSON->object
     this.latestMessage = obj;
     this.responseSubject.next(obj);
   }
 
-  formatWsDate(isoStr: string | undefined): string {
-    if (!isoStr) return '';
+  formatWSDate(isoStr: string | undefined): string {
+    if (!isoStr || isoStr === '1970-01-01T00:00:00Z') return 'YYYY-MON-DD HH:mm ZONE';
+
     const date = new Date(isoStr);
+    if (isNaN(date.getTime())) return 'YYYY-MON-DD HH:mm ZONE';
+
     const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
     const year = date.getFullYear();
@@ -198,6 +202,7 @@ export class HeroComponent implements OnInit {
     const day = String(date.getDate()).padStart(2, '0');
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
 
     // Get timezone offset in "UTC+01" format
     const offsetMin = -date.getTimezoneOffset();

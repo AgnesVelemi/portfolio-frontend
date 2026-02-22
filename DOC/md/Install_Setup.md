@@ -238,7 +238,7 @@ button {
         "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public" 
               },
               {
                 "glob": "**/*",
