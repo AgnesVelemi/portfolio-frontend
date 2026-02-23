@@ -25,18 +25,33 @@ export class HeaderComponent {
   }
 
 
-  openCV() {
-    const cvFile = this.currentLang === 'de'
-      ? 'assets/DOC/VelemiAgnesCV_2026_Jan_DE.pdf'
-      : 'assets/DOC/VelemiAgnesCV_2026_Jan_EN.pdf';
+  /*   openCV() {
+      const cvFile = this.currentLang === 'de'
+        ? 'assets/DOC/VelemiAgnesCV_2026_Jan_DE.pdf'
+        : 'assets/DOC/VelemiAgnesCV_2026_Jan_EN.pdf';
+  
+      (window as any).gtag('event', 'cv_download', {
+        event_category: 'engagement',
+        event_label: this.currentLang
+      });
+  
+      window.open(cvFile, '_blank');
+    } */
 
-    (window as any).gtag('event', 'cv_download', {
+
+  openCV(): void {
+
+
+    const url = `http://localhost:8080/api/cv/${this.currentLang}`;
+
+    (window as any).gtag?.('event', 'cv_download', {
       event_category: 'engagement',
       event_label: this.currentLang
     });
 
-    window.open(cvFile, '_blank');
+    window.open(url, '_blank');
   }
+
 
 }
 
