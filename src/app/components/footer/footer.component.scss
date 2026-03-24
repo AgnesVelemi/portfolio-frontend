@@ -1,3 +1,4 @@
+/* Sticky Footer Container */
 .sticky-footer {
     position: fixed;
     bottom: 0;
@@ -27,6 +28,7 @@
         }
     }
 
+    /* Technology Ticker / Links */
     .tech-ticker {
         display: flex;
         align-items: center;
@@ -66,29 +68,30 @@
         }
     }
 
+    /* Copyright Information */
     .copyright {
         opacity: 0.5;
     }
 }
 
+/* Footer Logo and Attribution */
 .logo {
     display: flex;
     align-items: center;
     font-weight: 800;
     font-size: 1.8rem;
     color: var(--white-color);
-
-    position: relative; // Needed for absolute positioning of the bubble
+    position: relative;
 
     .logo-img {
         height: 30px;
         margin-right: 10px;
-        cursor: help; // Indicates interaction available
+        cursor: help;
     }
 
     .attribution-bubble {
         position: absolute;
-        bottom: 100%; // Above the logo
+        bottom: 100%;
         left: 0;
         background-color: rgba(0, 0, 0, 0.8);
         color: white;
@@ -100,7 +103,7 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
-        pointer-events: none; // Prevent accidental clicks when hidden
+        pointer-events: none;
         z-index: 10;
 
         a {
@@ -113,11 +116,10 @@
         }
     }
 
-    // Show when hovering the image OR the bubble itself (so links can be clicked)
     .logo-img:hover+.attribution-bubble,
     .attribution-bubble:hover {
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
     }
-}
+}
