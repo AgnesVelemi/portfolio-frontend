@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LangService } from '../../i18n/lang.service';
-import SockJS from 'sockjs-client';  // <-- pm install --save-dev @types/sockjs-client
-import { Stomp } from '@stomp/stompjs'; // <-- npm install sockjs-client @stomp/stompjs
+// import SockJS from 'sockjs-client';  // <-- npm install --save-dev @types/sockjs-client
+import { Client } from '@stomp/stompjs'; // <-- npm install sockjs-client @stomp/stompjs
 import { Subject } from 'rxjs';
 import { MessageToServer } from "./messageToServer";
 import { MessageFromServer } from "./messageFromServer";
@@ -14,7 +14,6 @@ import { MessageFromServer } from "./messageFromServer";
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
 })
-
 export class HeroComponent implements OnInit {
 
   showEmail: boolean = false;
@@ -29,30 +28,23 @@ export class HeroComponent implements OnInit {
   langEnPercent: number = 60;
   langDePercent: number = 40;
 
-
-  /*Websocket related*/
   isConnected: boolean = false;
-  stompClient: any;
+  stompClient: Client | null = null;
+
   responseSubject = new Subject<MessageFromServer>();
   latestMessage: MessageFromServer = { outMessage: 'n/a', timestamp: '' };
 
   constructor(public langService: LangService) { }
 
   ngOnInit(): void {
-
     // Simulate "live" data changes slightly on load
     this.visitorCount += Math.floor(Math.random() * 10);
     this.cvDownloads += Math.floor(Math.random() * 5);
-
   }
 
-
-
-  /* i18n*/
-  t(key: string): string {
+  t(key: string): string { // i18n helper
     return this.langService.translate(key);
   }
-
 
   toggleEmail(): void {
     this.showEmail = !this.showEmail;
@@ -140,26 +132,58 @@ export class HeroComponent implements OnInit {
     });
   }
 
-  /*------------------- [WebSocket] -------------------*/
+  /*------------------- [STOMP over WebSocket] -------------------*/
   connect(): void {
-    console.log('[Websocket] Connecting...');
-    this.isConnected = true; // Synchronous state update for immediate UI feedback
+    if (this.isConnected && this.stompClient && this.stompClient.connected) {
+      console.log('[Websocket] Already connected, skipping...');
+      return;
+    }
 
-    let websocket = new SockJS('http://localhost:8080/ws/stomp'); // registy.add-ed websocket endpoint
-    this.stompClient = Stomp.over(websocket);
+    if (this.stompClient && this.stompClient.connected) {
+      this.stompClient.deactivate();
+    }
 
-    this.stompClient.connect({}, (frame: any) => {
-      this.stompClient.subscribe('/topic/greetings', (greetingResponse: any) => {
+    // Initialize the STOMP Client
+    this.stompClient = new Client({
+      brokerURL: 'ws://localhost:8080/ws/stomp',  // STOMP endpoint
+      connectHeaders: {
+        'client-type': 'frontend'  // Custom headers can be added here
+      },
+      debug: (str) => console.log('[Websocket Debug] ' + str),
+      reconnectDelay: 5000,     // Delay before attempting to reconnect
+      heartbeatIncoming: 4000,  // Wait for the incoming heartbeat from the server
+      heartbeatOutgoing: 4000,  // Send an outgoing heartbeat to the server
+    });
+
+    // Connect to the STOMP broker
+    this.stompClient.onConnect = (frame) => {
+      this.isConnected = true; // Mark as connected only after success
+      console.log('[STOMP Websocket] Connected: ' + frame);
+
+      // Subscribe to STOMP topic
+      this.stompClient?.subscribe('/topic/greetings', (greetingResponse: any) => {
         this.onMessageReceived(greetingResponse);
       });
-    }, (error: any) => this.errorCallback(error));
-  };
+    };
 
+    this.stompClient.onStompError = (frame) => {
+      console.error('[Websocket] Broker reported error: ' + frame.headers['message']);
+      console.error('[Websocket] Additional details: ' + frame.body);
+      this.isConnected = false;
+    };
+
+    this.stompClient.onWebSocketClose = () => {
+      this.isConnected = false;
+      console.log('[Websocket] Connection closed');
+    };
+
+    this.stompClient.activate();
+  };
 
   disconnect(): void {
     console.log('[Websocket] Disconnecting...');
     if (this.stompClient != null) {
-      this.stompClient.disconnect();
+      this.stompClient.deactivate();
       this.isConnected = false;
       this.latestMessage = { outMessage: 'n/a', timestamp: '1970-01-01T00:00:00Z' };
     }
@@ -176,10 +200,22 @@ export class HeroComponent implements OnInit {
 
   send(messageText: string): void {
     if (!messageText) return;
+
     const message: MessageToServer = { payload: messageText };
     console.log('[Websocket] Sending message:', message);
-    this.stompClient.send("/app/greet", {}, JSON.stringify(message)); // FE-client sends message to BE-server via WS
-    console.log('[Websocket] Sent message:', JSON.stringify(message));
+
+    if (this.stompClient && this.stompClient.connected) {
+      this.stompClient.publish({  // FE-client sends message to BE-server via WS
+        destination: "/app/greet",
+        body: JSON.stringify(message),
+        headers: {
+          'client-type': 'frontend'  // Include the custom header here
+        }
+      });
+      console.log('[Websocket] Sent message:', JSON.stringify(message));
+    } else {
+      console.error('[Websocket] Cannot send message, not connected');
+    }
   }
 
   onMessageReceived(gotMessageFromServer: any) {
@@ -212,5 +248,4 @@ export class HeroComponent implements OnInit {
 
     return `${year}-${month}-${day} ${hours}:${minutes} ${tz}`;
   }
-
 }

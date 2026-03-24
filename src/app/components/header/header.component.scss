@@ -1,17 +1,14 @@
+/* Header Container */
 header {
     background-color: var(--darker-card-bg-color);
     color: var(--mid-colored-btn-bg);
     padding: 20px 0;
-    // position: absolute;
     position: sticky;
     width: 100%;
     top: 0;
     left: 0;
-    //z-index: 10;
     z-index: 1000;
-    /* Solid background to obscure scrolling content */
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    /* Subtle separator */
 }
 
 .header-content {
@@ -20,19 +17,19 @@ header {
     align-items: center;
 }
 
+/* Logo and Attribution */
 .logo {
     display: flex;
     align-items: center;
     font-weight: 800;
     font-size: 1.5rem;
     color: var(--white-color);
-
-    position: relative; // Needed for absolute positioning of the bubble
+    position: relative;
 
     .logo-img {
         height: 30px;
         margin-right: 10px;
-        cursor: help; // Indicates interaction available
+        cursor: help;
     }
 
     .attribution-bubble {
@@ -49,7 +46,7 @@ header {
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
-        pointer-events: none; // Prevent accidental clicks when hidden
+        pointer-events: none;
         z-index: 10;
 
         a {
@@ -63,8 +60,6 @@ header {
         }
     }
 
-
-    // Show when hovering the image OR the bubble itself (so links can be clicked)
     .logo-img:hover+.attribution-bubble,
     .attribution-bubble:hover {
         opacity: 1;
@@ -73,6 +68,7 @@ header {
     }
 }
 
+/* Navigation Menu */
 nav ul {
     display: flex;
     list-style: none;
@@ -94,11 +90,11 @@ nav ul {
     }
 }
 
+/* Actions: Language Switcher and CTA */
 .actions {
     display: flex;
     align-items: center;
     gap: 15px;
-
 
     .lang-btn {
         background: none;
@@ -107,7 +103,6 @@ nav ul {
         opacity: 0.5;
         padding: 0;
         font-size: 1.2rem;
-
 
         &.active {
             opacity: 1;

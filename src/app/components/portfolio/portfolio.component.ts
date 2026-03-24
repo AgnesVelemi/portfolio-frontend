@@ -105,10 +105,6 @@ export class PortfolioComponent implements OnInit {
   currentIndex: number = 0;
   visibleCards: number = 3;
 
-
-
-
-
   updateVisibleCards(): void {
     const width = window.innerWidth;
     if (width < 768) {
@@ -186,7 +182,5 @@ export class PortfolioComponent implements OnInit {
       console.error('Failed to copy discord username: ', err);
     });
   }
-
-
 }
 

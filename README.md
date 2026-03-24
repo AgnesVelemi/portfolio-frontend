@@ -1,70 +1,96 @@
-# portfolio-frontend
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
+# 🚀 Portfolio Frontend - Fullstack Angular Application
 
-# Change Log
-Detailed [Change Log](DOC/md/Change_Log.md) with versions & screenshots.
+[![Angular](https://img.shields.io/badge/Angular-19-dd0031.svg?logo=angular)](https://angular.io/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6.svg?logo=typescript)](https://www.typescriptlang.org/)
+[![Spring Boot](https://img.shields.io/badge/Backend-Spring%20Boot-6db33f.svg?logo=springboot)](https://github.com/AgnesVelemi/portfolio-backend.git)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Departure
-Detailed [Install Setup](DOC/md/Install_Setup.md) with screenshots and checklists.
+[🇩🇪 German Version (README_DE.md)](README_DE.md) | [📖 Detailed Setup Guide](DOC/md/install_for_frontend.md)
+
+This is the frontend component of a **Fullstack Portfolio Website**, built with **Angular 19**. It features real-time communication via STOMP overWebSocket, RESTful API integration, and internationalization.
+
+---
+
+## 🏗️ Fullstack Architecture
+
+This project is not a standalone static site. It is part of a distributed system:
+
+- **Frontend**: Angular 19 (TypeScript, SCSS, Standalone Components).
+- **Backend**: [Portfolio Backend (Spring Boot)](https://github.com/AgnesVelemi/portfolio-backend.git).
+- **Real-time Interaction**: STOMP over WebSockets for bi-directional communication.
+- **REST APIs**: Restful endpoints for standard data exchange and asset management.
+
+### Communication Protocol
+The frontend interacts with the backend (running on `localhost:8080`) through:
+1.  **REST (HTTP)**: 
+    *   **CV Download**: `/api/cv/{lang}` - Fetches the latest CV based on the UI language selection.
+2.  **WebSocket (STOMP)**:
+    *   **Endpoint**: `ws://localhost:8080/ws/stomp`
+    *   **Publication**: Sent to `/app/greet`.
+    *   **Subscription**: Listens to `/topic/greetings` for real-time server-sent messages.
+
+---
+
+## ✨ Portfolio Highlights
+
+The `PortfolioComponent` showcases a curated list of software engineering projects:
+
+| Project Name | Technology Stack | Key Features |
+| :--- | :--- | :--- |
+| **Portfolio Website** | Angular, GA4 | Professional UI with Google Analytics 4 integration. |
+| **Dashboard AAA** | Maven Multi-project | Enterprise-grade dashboard structure with microservice readiness. |
+| **DogBlogger** | Spring Boot | Scalable backend architecture utilizing microservice patterns. |
+| **Flat Renovation Calculator** | Fullstack | Integrated payment processing flow within a microservice ecosystem. |
+| **IT Knowledge Base** | Angular, Spring Boot | CRUD operations with real-time updates and microservice integration. |
+
+---
+
+## 🛠️ Advanced Features
+
+- **Google Analytics Integration**: Custom `GoogleAnalyticsService` tracking user engagement and language preferences.
+- **Dynamic Localization**: Full support for English and German via a custom `LangService`.
+- **STOMP Client**: Robust WebSocket client management with auto-reconnection and heartbeat handling.
+- **Responsive Design**: Premium, mobile-first SCSS layout.
+
+---
+
+## 🚀 Getting Started
+
+To explore the frontend locally:
+
+1.  **Clone the Repository**:
+    ```bash
+    git clone https://github.com/AgnesVelemi/portfolio-frontend.git
+    cd portfolio-frontend
+    ```
+2.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+3.  **Run Development Server**:
+    ```bash
+    ng serve
+    ```
+4.  **Backend Requirement**:
+    Ensure the [Portfolio Backend](https://github.com/AgnesVelemi/portfolio-backend.git) is running on `http://localhost:8080` for full functionality.
+
+---
+
+## 📑 Remote Origin Check
+
+To verify your remote configuration:
 ```bash
-ng install @angular/cli
+git remote get-url origin
+# Expected: https://github.com/AgnesVelemi/portfolio-frontend.git
 ```
 
-## Enhancement
-* STOMP over WebSocket for real-time communication of the Google Analytics 4 (GA4) events 
-  * [Websocket](DOC/md/Websocket_GA4.md)
+---
 
+## 🤝 Contact
 
+**Agnes Velemi** - Fullstack Developer
+- GitHub: [@AgnesVelemi](https://github.com/AgnesVelemi)
+- Documentation: [install_for_frontend.md](DOC/md/install_for_frontend.md)
 
-## Development server
-To start a local development server, run:
-```bash
-ng serve
-```
-Once the server is running, open your browser and navigate to `http://localhost:4200/`.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+*Created with focus on Fullstack mastery.*

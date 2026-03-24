@@ -52,7 +52,8 @@
                 </div>
                 <div class="ws-controls">
                     <div class="ws-btn-row">
-                        <button class="ws-btn" [class.active]="isConnected" (click)="connect()">WS Connect</button>
+                        <button class="ws-btn" [class.active]="isConnected" [disabled]="isConnected"
+                            (click)="connect()">WS Connect</button>
                         <button class="ws-btn" [class.active]="!isConnected" (click)="disconnect()">WS
                             Disconnect</button>
                     </div>

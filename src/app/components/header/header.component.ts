@@ -19,36 +19,11 @@ export class HeaderComponent {
   switchLang(lang: 'en' | 'de') {
     this.langService.switchLang(lang);
   }
-
   t(key: string): string {
     return this.langService.translate(key);
   }
-
-
-  /*   openCV() {
-      const cvFile = this.currentLang === 'de'
-        ? 'assets/DOC/VelemiAgnesCV_2026_Jan_DE.pdf'
-        : 'assets/DOC/VelemiAgnesCV_2026_Jan_EN.pdf';
-  
-      (window as any).gtag('event', 'cv_download', {
-        event_category: 'engagement',
-        event_label: this.currentLang
-      });
-  
-      window.open(cvFile, '_blank');
-    } */
-
-
-  openCV(): void {
-
-
+  openCV() {
     const url = `http://localhost:8080/api/cv/${this.currentLang}`;
-
-    (window as any).gtag?.('event', 'cv_download', {
-      event_category: 'engagement',
-      event_label: this.currentLang
-    });
-
     window.open(url, '_blank');
   }
 
