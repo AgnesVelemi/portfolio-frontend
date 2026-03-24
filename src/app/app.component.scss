@@ -1,0 +1,57 @@
+.app-container {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    min-height: 100vh;
+
+    &>app-header,
+    &>app-footer,
+    &>main>* {
+        grid-column: 2;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.02);
+        padding-left: 5%;
+        padding-right: 5%;
+        box-sizing: border-box;
+    }
+
+    &>main {
+        grid-column: 2;
+        display: flex;
+        flex-direction: column;
+
+    }
+}
+
+
+
+
+/* Responsivity: smaller margins on mobile */
+@media screen and (max-width: 1366px) {
+    .app-container {
+        grid-template-columns: 1fr 14fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .app-container {
+        grid-template-columns: 1fr 20fr 1fr;
+
+        &>* {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .app-container {
+        grid-template-columns: 20px 1fr 20px;
+
+        &>* {
+            padding-left: 20px;
+            padding-right: 20px;
+            box-shadow: none;
+            border-left: none;
+            border-right: none;
+        }
+    }
+}
