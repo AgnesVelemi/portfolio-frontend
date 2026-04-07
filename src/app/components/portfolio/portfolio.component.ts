@@ -86,11 +86,11 @@ export class PortfolioComponent implements OnInit {
 
   /* Slider Logic */
   projects = [
-    { id: 1, translationKey: 'PROJECT_1', image: 'assets/img/project_img_portfolio_siampledev.png', url: 'http://localhost:4200/#' },
+    { id: 1, translationKey: 'PROJECT_1', image: 'assets/img/project_img_portfolio_siampledev.png', url: '#' },
     { id: 2, translationKey: 'PROJECT_2', image: 'assets/img/project_img_siampledev.png', url: 'https://siample.dev' },
     { id: 3, translationKey: 'PROJECT_3', image: 'assets/img/project_img_AWSsiampledev.png', url: 'https://aws.siample.dev' },
-    { id: 4, translationKey: 'PROJECT_4', image: 'assets/img/project_img_portfolio_siampledev.png', url: 'http://localhost:4200/#' },
-    { id: 5, translationKey: 'PROJECT_5', image: 'assets/img/project_img_portfolio_siampledev.png', url: 'http://localhost:4200/#' }
+    { id: 4, translationKey: 'PROJECT_4', image: 'assets/img/project_img_portfolio_siampledev.png', url: '#' },
+    { id: 5, translationKey: 'PROJECT_5', image: 'assets/img/project_img_portfolio_siampledev.png', url: '#' }
   ];
 
   /* Navigation Methods */

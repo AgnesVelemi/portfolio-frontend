@@ -6,6 +6,7 @@ import { Client } from '@stomp/stompjs'; // <-- npm install sockjs-client @stomp
 import { Subject } from 'rxjs';
 import { MessageToServer } from "./messageToServer";
 import { MessageFromServer } from "./messageFromServer";
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: 'app-hero',
@@ -143,9 +144,17 @@ export class HeroComponent implements OnInit {
       this.stompClient.deactivate();
     }
 
+    // Determine the Stomp Broker URL
+    let brokerURL = environment.wsUrl;
+    if (!brokerURL) {
+      // If wsUrl is empty (production), use the current host and protocol
+      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+      brokerURL = `${protocol}//${window.location.host}/ws/stomp`;
+    }
+
     // Initialize the STOMP Client
     this.stompClient = new Client({
-      brokerURL: 'ws://localhost:8080/ws/stomp',  // STOMP endpoint
+      brokerURL: brokerURL,  // Dynamic STOMP endpoint
       connectHeaders: {
         'client-type': 'frontend'  // Custom headers can be added here
       },

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LangService } from '../../i18n/lang.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -23,7 +24,7 @@ export class HeaderComponent {
     return this.langService.translate(key);
   }
   openCV() {
-    const url = `http://localhost:8080/api/cv/${this.currentLang}`;
+    const url = `${environment.apiUrl}/api/cv/${this.currentLang}`;
     window.open(url, '_blank');
   }
 
