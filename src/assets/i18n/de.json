@@ -1,10 +1,9 @@
 {
     "HEADER": {
-        "HOME": "HOME",
+        "HOME": "DASHBOARD",
         "PROJECTS": "PROJEKTE",
-        "SERVICES": "GIT-CODES",
-        "CONTACT": "LEBENSLAUF",
-        "LETS_TALK": "LASS UNS REDEN"
+        "GITCODES": "GIT-CODES",
+        "LETS_TALK": "LEBENSLAUF"
     },
     "HERO": {
         "GREETING_PREFIX": "AGNES VELEMI",

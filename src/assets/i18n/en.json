@@ -1,10 +1,9 @@
 {
   "HEADER": {
-    "HOME": "HOME",
+    "HOME": "DASHBOARD",
     "PROJECTS": "PROJECTS",
-    "SERVICES": "GIT-CODES",
-    "CONTACT": "CONTACT & CV",
-    "LETS_TALK": "LET'S TALK"
+    "GITCODES": "GIT-CODES",
+    "LETS_TALK": "CV"
   },
   "HERO": {
     "GREETING_PREFIX": "AGNES VELEMI",
@@ -28,7 +27,7 @@
     "DESCRIPTION": "Earlier I began to use the Thymeleaf html-springboot integrated server-side view, later I switched to using Angular framework in separated frontend webapplications. In the meantime, in addition to maintaining XML-based spring applications with my software developments, I developed java-maven-spring boot programs using Lombok, and apache-poi to write out postgres-data into excel spreadsheets.\nQualification: IT engineer BSc degree at Dennis Gabor College.",
     "PROJECT_1": {
       "TITLE": "Website Design",
-      "DESC": "Angular incl. Google Analytics"
+      "DESC": "Angular, Google Analytics"
     },
     "PROJECT_2": {
       "TITLE": "Dashboard AAA",

@@ -12,15 +12,15 @@
         <nav>
             <ul>
                 <li><a href="#">{{ t('HEADER.PROJECTS') }}</a></li>
-                <li><a href="#">{{ t('HEADER.SERVICES') }}</a></li>
-                <li><a href="javascript:void(0)" (click)="openCV()">{{ t('HEADER.CONTACT') }}</a></li>
+                <!-- <li><a href="#">{{ t('HEADER.SERVICES') }}</a></li> -->
+                <li><a href="javascript:void(0)">{{ t('HEADER.GITCODES') }}</a></li>
             </ul>
         </nav>
         <div class="actions">
             <button class="lang-btn" (click)="switchLang('en')" [class.active]="currentLang === 'en'">EN</button>
             <span class="divider">|</span>
             <button class="lang-btn" (click)="switchLang('de')" [class.active]="currentLang === 'de'">DE</button>
-            <button class="cta-btn">{{ t('HEADER.LETS_TALK') }}</button>
+            <button class="cta-btn" (click)="openCV()">{{ t('HEADER.LETS_TALK') }}</button>
         </div>
     </div>
 </header>

@@ -9,6 +9,11 @@
     background-color: var(--pale-light-colored);
 
     @media (max-width: 768px) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    @media (max-width: 576px) {
         padding-top: 40px;
         padding-bottom: 40px;
     }
@@ -72,7 +77,7 @@
     padding: 40px;
 
     @media (max-width: 576px) {
-        padding: 25px;
+        padding: 25px 20px;
     }
 }
 
@@ -147,12 +152,22 @@ h2.outlined-text {
         border-radius: 20px;
         overflow: hidden;
         width: 100%;
-        height: 460px;
+        aspect-ratio: 4 / 3;
+        max-height: 460px;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         border: 1px solid rgba(255, 255, 255, 0.05);
 
+        @media (max-width: 1200px) {
+            aspect-ratio: 16 / 9;
+        }
+
+        @media (max-width: 768px) {
+            aspect-ratio: 4 / 3;
+            max-height: 400px;
+        }
+
         @media (max-width: 576px) {
-            height: 350px;
+            max-height: 350px;
         }
 
         img {
@@ -177,8 +192,8 @@ h2.outlined-text {
         border: 3px solid rgba(255, 255, 255, 0.05);
         border-radius: 16px;
         padding: 20px;
-        height: 100%;
-        max-height: 400px;
+        min-height: 350px;
+        height: auto;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         color: var(--white-color);
         backdrop-filter: blur(10px);
@@ -254,13 +269,20 @@ h2.outlined-text {
             display: flex;
             gap: 10px;
             align-items: stretch;
+            flex-wrap: wrap;
+
+            @media (max-width: 992px) {
+                /* When in 2-col layout but narrow, allow items to wrap */
+                justify-content: space-between;
+            }
 
             @media (max-width: 576px) {
                 flex-direction: column;
             }
 
             .ws-input {
-                width: 100%;
+                flex: 1;
+                min-width: 140px;
                 background-color: rgba(0, 0, 0, 0.3);
                 border: 2px solid #000;
                 border-radius: 8px;
@@ -305,7 +327,7 @@ h2.outlined-text {
             }
 
             .ws-received-message {
-                flex: 1;
+                flex: 1 1 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -317,7 +339,13 @@ h2.outlined-text {
                 border: 2px solid var(--mid-colored-btn-bg);
                 border-radius: 8px;
                 padding: 6px 12px;
-                min-width: 150px;
+                min-width: 200px;
+
+                @media (max-width: 1200px) and (min-width: 769px) {
+                    /* On tablet land/desktop where grid is 1fr 1fr, 
+                       ensure message takes its own row if needed */
+                    order: 3;
+                }
 
                 .label {
                     font-size: 0.75rem;
