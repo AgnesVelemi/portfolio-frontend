@@ -150,6 +150,7 @@ export class HeroComponent implements OnInit {
       // If wsUrl is empty (production), use the current host and protocol
       const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
       brokerURL = `${protocol}//${window.location.host}/ws/stomp`;
+      //brokerURL = `${protocol}//localhost:8080/ws/stomp`;
     }
 
     // Initialize the STOMP Client

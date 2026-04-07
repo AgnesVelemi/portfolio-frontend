@@ -10,6 +10,7 @@ import { environment } from '../../../environments/environment';
 })
 export class HeaderComponent {
   currentLang = 'en';
+  dashboardUrl = environment.dashboardUrl;
 
   constructor(public langService: LangService) {
     this.langService.lang$.subscribe(lang => {
