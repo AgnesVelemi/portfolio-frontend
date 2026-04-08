@@ -68,6 +68,12 @@
         text-align: center;
         gap: 30px;
     }
+
+    /* Ensure columns don't overflow if content is unbreakable */
+    .text-column,
+    .image-column {
+        min-width: 0;
+    }
 }
 
 .text-column {
@@ -194,6 +200,8 @@ h2.outlined-text {
         padding: 20px;
         min-height: 350px;
         height: auto;
+        min-width: 0;
+        /* Allow the dashboard to shrink if content is unbreakable */
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         color: var(--white-color);
         backdrop-filter: blur(10px);
@@ -339,7 +347,8 @@ h2.outlined-text {
                 border: 2px solid var(--mid-colored-btn-bg);
                 border-radius: 8px;
                 padding: 6px 12px;
-                min-width: 200px;
+                min-width: 0;
+                /* Critical for text-overflow to work in flex children */
 
                 @media (max-width: 1200px) and (min-width: 769px) {
                     /* On tablet land/desktop where grid is 1fr 1fr, 
@@ -474,4 +483,4 @@ h2.outlined-text {
             }
         }
     }
-}
+}
