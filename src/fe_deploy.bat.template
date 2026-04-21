@@ -1,0 +1,18 @@
+:: TEMPLATE: Copy this file to src/fe_deploy.bat and fill in your details
+:: DO NOT PUSH YOUR ACTUAL DEPLOY SCRIPT TO GITHUB
+
+set PRIVATE_KEY_PATH="C:/path/to/your/key.pem"
+set SERVER_USER="your_user"
+set SITE_DOMAIN="your_server_ip"
+set FRONTEND_DIR="C:/path/to/your/project"
+set FRONTEND_BUILD_DIR="%FRONTEND_DIR%/dist/portfolio-frontend"
+set REMOTE_FRONTEND_DIR="/home/your_user/frontend"
+
+:: Example commands:
+:: Delete all existing frontend files
+echo ssh -i %PRIVATE_KEY_PATH% %SERVER_USER%@%SITE_DOMAIN% "sudo rm -rf %REMOTE_FRONTEND_DIR%/*"
+:: ssh -i %PRIVATE_KEY_PATH% %SERVER_USER%@%SITE_DOMAIN% "sudo rm -rf %REMOTE_FRONTEND_DIR%/*"
+
+:: Copy frontend files
+echo scp -i %PRIVATE_KEY_PATH% -r %FRONTEND_BUILD_DIR%/browser/* %SERVER_USER%@%SITE_DOMAIN%:%REMOTE_FRONTEND_DIR%
+:: scp -i %PRIVATE_KEY_PATH% -r %FRONTEND_BUILD_DIR%/browser/* %SERVER_USER%@%SITE_DOMAIN%:%REMOTE_FRONTEND_DIR%
