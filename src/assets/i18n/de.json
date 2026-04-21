@@ -3,6 +3,8 @@
         "HOME": "DASHBOARD",
         "PROJECTS": "PROJEKTE",
         "GITCODES": "GIT-CODES",
+        "FRONTEND": "Frontend",
+        "BACKEND": "Backend",
         "LETS_TALK": "LEBENSLAUF"
     },
     "HERO": {

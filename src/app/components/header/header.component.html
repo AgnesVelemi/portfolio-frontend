@@ -13,7 +13,15 @@
             <ul>
                 <li><a [href]="dashboardUrl" target="_blank">BACKEND -></a></li>
                 <li><a href="#">{{ t('HEADER.PROJECTS') }}</a></li>
-                <li><a href="javascript:void(0)">{{ t('HEADER.GITCODES') }}</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)">{{ t('HEADER.GITCODES') }}</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://github.com/AgnesVelemi/portfolio-frontend" target="_blank">{{
+                                t('HEADER.FRONTEND') }}</a></li>
+                        <li><a href="https://github.com/AgnesVelemi/portfolio-backend" target="_blank">{{
+                                t('HEADER.BACKEND') }}</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <div class="actions">
